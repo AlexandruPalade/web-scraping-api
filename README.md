@@ -29,3 +29,9 @@ This Node.js application enables web scraping of blog entries from a website usi
 - **Body Parser:** The application uses the body-parser middleware to parse JSON data from requests.
 
 - **Scraping Router:** Routing is organized using the `scrapeRouter` module to handle web scraping requests.
+
+## Feature features
+
+- **Documentation Generator**: Create an API documentation generator that automatically generates and updates documentation based on the available endpoints and features.
+- **Custom Data Extraction**: Provide users with the ability to specify custom data extraction rules. This can be useful for users who want to scrape specific elements from the webpage.
+- **Content Translation**: Automatically translate content into different languages, enabling users to access content in their preferred language.
