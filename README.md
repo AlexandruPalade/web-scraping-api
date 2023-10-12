@@ -21,3 +21,11 @@ This Node.js application enables web scraping of blog entries from a website usi
 - **Styled-Components:** The application utilizes styled-components for styling, allowing the definition of styles directly within the JavaScript code.
 
 - **TypeScript:** The codebase is written in TypeScript, providing static type checking for enhanced code quality and maintainability.
+
+- **Express:** The application uses Express, a popular Node.js framework, to set up a REST API with proper routing and handling.
+
+- **CORS:** CORS middleware is implemented to handle cross-origin resource sharing, making the API accessible from different domains.
+
+- **Body Parser:** The application uses the body-parser middleware to parse JSON data from requests.
+
+- **Scraping Router:** Routing is organized using the `scrapeRouter` module to handle web scraping requests.
