@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { scrapeWebsite } from "../service/functions";
+import { scrapeWebsite } from "../service/scrapeService";
 import { ERRORS } from "../const/errors";
 import { config } from "../const/config";
 

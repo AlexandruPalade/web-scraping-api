@@ -1,11 +1,11 @@
 import puppeteer from "puppeteer";
 import cheerio from "cheerio";
-import BlogEntry from "../models/BlogEntry.model";
+import BlogEntry from "../models/blogEntry.model";
 import { config } from "../const/config";
 import fs from "fs";
 import PDFDocument from "pdfkit";
 
-export function analyzeSentiment(title: string, description: string) {
+function analyzeSentiment(title: string, description: string) {
   const positiveWords = [
     "joy",
     "positive impact",
@@ -54,7 +54,7 @@ export function countWords(text: string): number {
   return filteredWords.length;
 }
 
-export function scrapeBlogEntries(html: string): BlogEntry[] {
+function scrapeBlogEntries(html: string): BlogEntry[] {
   const $ = cheerio.load(html);
   const entries: BlogEntry[] = [];
   const outputFilePath: string = "output.pdf";
@@ -94,10 +94,10 @@ export function scrapeBlogEntries(html: string): BlogEntry[] {
       words
     });
   });
-
-  entries.splice(0, 2);
-  createPDF(entries, outputFilePath);
-  return entries;
+  const filteredEntries: BlogEntry[] = entries.filter(
+    entry => entry.title !== ""
+  );
+  return filteredEntries;
 }
 
 export async function scrapeWebsite(url: string) {
@@ -110,6 +110,8 @@ export async function scrapeWebsite(url: string) {
 
     const content = await page.content();
     const scrapedDataArray = scrapeBlogEntries(content);
+    const outputFilePath: string = "output.pdf";
+    createPDF(scrapedDataArray, outputFilePath);
 
     await browser.close();
     return scrapedDataArray;
